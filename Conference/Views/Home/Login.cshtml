@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("LoggedIn", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td><p>Электронная почта :</p></td>
+            <td><input type="email" name="Email" /> </td>
+        </tr>
+        <tr>
+            <td><p>Пароль :</p></td>
+            <td><input type="password" name="Password" /> </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Войти" /> </td>
+            <td></td>
+        </tr>
+    </table>
+}
+@{
+    <h3>@ViewData["Message"]</h3>
+}
+@Html.ActionLink("Регистрация", "Register", "Registration")
+

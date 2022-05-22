@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Conference.Models.UsersViewModel>
+
+@{
+    ViewBag.Title = "Participants";
+}
+
+<h2>Participants</h2>
+@using (Html.BeginForm("SortParticipants", "Home", FormMethod.Post))
+{
+<select id="SortBy" name="SortBy">
+    <option value="0">ФИО</option>
+    <option selected="selected" value="1">Возраст</option>
+    <option value="2">Областной центр</option>
+</select>
+    <input type="submit" value="Сортировать" />
+}
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StateCapital)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StateCapital)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+        </tr>
+    }
+
+</table>
